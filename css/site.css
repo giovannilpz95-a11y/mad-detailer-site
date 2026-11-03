@@ -1,0 +1,114 @@
+/* =========================================================
+   THE MAD DETAILER · site styles
+   ---------------------------------------------------------
+   TO CHANGE THE ACCENT COLOR: edit the two lines marked
+   "ACCENT" below. Everything green on the site uses them.
+     Lime (logo):        --accent:#7fd321;  --accent-ink:#0b0c0d;
+     Hot pink (flyer):   --accent:#ff2d95;  --accent-ink:#ffffff;
+   ========================================================= */
+:root{
+  --accent:#7fd321;      /* ACCENT: main color */
+  --accent-ink:#0b0c0d;  /* ACCENT: text color on top of the accent */
+  --bg:#0b0c0d;--panel:#15171a;--line:#272a2e;--fg:#f1f2f3;--muted:#9da3ab;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark
+}
+/* Preview the pink version without editing anything: add ?accent=pink to the URL */
+html.pink{--accent:#ff2d95;--accent-ink:#ffffff}
+
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:17px/1.55 var(--body);padding-bottom:76px}
+@media(min-width:761px){body{padding-bottom:0}}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:112%;font-weight:900;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,6vw,56px)}
+.eye{font:900 13px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-block;font:900 15px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:16px 22px;border-radius:3px;text-decoration:none;border:2px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;text-align:center}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--fg)}
+.btn.sm{padding:12px 16px;font-size:14px}
+
+/* Header */
+header{position:sticky;top:0;z-index:5;background:rgba(11,12,13,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:10px;gap:12px}
+header img{height:46px;width:auto}
+header nav{display:flex;align-items:center;gap:22px}
+header nav a.link{text-decoration:none;font:600 15px/1 var(--body);color:var(--muted)}
+header nav a.link:hover{color:var(--fg)}
+@media(max-width:760px){header nav a.link{display:none}header img{height:38px}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 5%,rgba(11,12,13,.6) 50%,transparent)}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(70px,11vw,140px)}
+.hero h1{font-size:clamp(46px,9vw,100px);max-width:11ch}.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:20px;max-width:36ch;margin:22px 0 30px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:36px;color:var(--muted);font-size:15px}.chips b{color:var(--fg)}
+@media(prefers-reduced-motion:reduce){.hero video{display:none}}
+
+section{padding-block:clamp(60px,9vw,100px);border-bottom:1px solid var(--line)}
+.head{display:grid;gap:12px;margin-bottom:36px}
+.head p{margin:0;color:var(--muted);max-width:60ch}
+
+/* Price menu */
+.menu-group{margin-top:44px}.menu-group:first-of-type{margin-top:0}
+.menu-group>h3{font-size:clamp(22px,3vw,28px);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.menu-group>h3::before{content:"";width:22px;height:4px;background:var(--accent);border-radius:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.card.feature{border-color:var(--accent)}
+.card h4{font:900 20px/1.05 var(--display);font-stretch:112%;text-transform:uppercase;margin:0}
+.tag{align-self:flex-start;font:900 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:6px 8px;border-radius:2px}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;align-content:start;color:var(--muted);font-size:15px;flex:1}
+.card li{padding-left:18px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:2px;background:var(--accent)}
+.prices{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);padding-top:14px}
+.prices div{display:grid;gap:4px}.prices div+div{border-left:1px solid var(--line);padding-left:14px}
+.prices span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.prices b{font:900 30px/1 var(--display);color:var(--fg)}
+.addons{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.addons div{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.addons b{font-weight:600}.addons span{font:900 20px/1 var(--display);white-space:nowrap}
+.addons span.c{font:600 14px/1.2 var(--body);color:var(--accent)}
+.note{margin-top:22px;color:var(--muted);font-size:14px}
+
+/* Fleet band */
+.fleet{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+.fleet p{color:var(--muted);margin:16px 0 24px;max-width:48ch}
+@media(max-width:760px){.fleet{grid-template-columns:1fr}}
+
+/* Gallery */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grid figure{margin:0;position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:3px;background:var(--panel)}
+.grid img{width:100%;height:100%;object-fit:cover}
+.grid figcaption{position:absolute;inset:auto 0 0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:13px;font-weight:600}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+.proof{display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
+.big{font:900 clamp(56px,10vw,96px)/1 var(--display);color:var(--accent)}
+
+/* Contact + form */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:44px}
+@media(max-width:820px){.contact{grid-template-columns:1fr}}
+.lines{display:grid;margin:24px 0}.lines div{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.lines span,.lines a{color:var(--muted);text-decoration:none}.lines a:hover{color:var(--fg)}
+form{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:24px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{font:16px var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:12px;width:100%}
+textarea{min-height:96px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.two>*{min-width:0}@media(max-width:480px){.two{grid-template-columns:1fr}}
+.hp{position:absolute;left:-9999px}
+
+footer{padding-block:40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer nav{display:flex;gap:18px}footer a{color:var(--muted)}footer a:hover{color:var(--fg)}
+
+/* Sticky mobile call/book bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:10;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px max(12px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px));background:rgba(11,12,13,.94);border-top:1px solid var(--line)}
+@media(min-width:761px){.mbar{display:none}}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
