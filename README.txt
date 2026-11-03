@@ -1,7 +1,7 @@
 THE MAD DETAILER WEBSITE
 ========================
 
-WHAT'S IN THIS FOLDER
+WHAT'S IN THIS FOLDER (the website files are inside public/)
   index.html      the home page
   thank-you.html  shown after someone sends the quote form
   404.html        shown for a bad link
@@ -39,25 +39,25 @@ WHAT'S IN THIS FOLDER
      is detected (Domain management > HTTPS > Verify DNS if it hasn't).
 
 4. WHEN SQUARE APPOINTMENTS IS READY
-  Open js/site.js, paste the booking link between the quotes on the
+  Open public/js/site.js, paste the booking link between the quotes on the
   BOOKING_URL line, save, and drag the folder into Netlify again.
   Until then every "Book Now" button goes to the quote form.
 
 5. SWITCH TO HOT PINK (or any color)
   Preview it first: add ?accent=pink to the end of the site link.
-  To make it permanent: open css/site.css and change the two ACCENT lines at the
+  To make it permanent: open public/css/site.css and change the two ACCENT lines at the
   top (the pink values are written right there in the comment).
 
 6. SWAP PHOTOS
-  Replace a file in images/ with a new one using the SAME file name.
+  Replace a file in public/images/ with a new one using the SAME file name.
   Best size: tall (portrait) 720 x 960 JPG, under 200 KB.
 
 HOSTING ON CLOUDFLARE PAGES (free, no badge) - replaces steps 1-3 above
   a. Web3Forms: she signs up at web3forms.com with maddetailermobile@gmail.com.
-     They email her an access key. Paste it into WEB3FORMS_KEY in js/site.js.
+     They email her an access key. Paste it into WEB3FORMS_KEY in public/js/site.js.
   b. Cloudflare: dash.cloudflare.com > Workers & Pages > Create > Pages tab >
      Connect to Git > GitHub > mad-detailer-site. Framework preset: None.
-     Build command: blank. Build output directory: / . Save and Deploy.
+     Build command: blank. Build output directory: public Save and Deploy.
      You get a link like mad-detailer-site.pages.dev.
   c. Domain: in Cloudflare, Add a domain > mhdetails.com > Free plan. Cloudflare copies
      the existing GoDaddy records and gives you 2 nameservers.
