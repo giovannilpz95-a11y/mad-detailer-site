@@ -6,7 +6,7 @@ WHAT'S IN THIS FOLDER
   thank-you.html  shown after someone sends the quote form
   404.html        shown for a bad link
   css/site.css    colors and styles (accent color is at the very top)
-  js/site.js      the Square booking link goes here (top of the file)
+  js/site.js      Square booking link + Web3Forms key go here (top of the file)
   images/         all photos, the logo and the hero video
 
 1. PUT IT ONLINE (Netlify, about 5 minutes)
@@ -51,3 +51,20 @@ WHAT'S IN THIS FOLDER
 6. SWAP PHOTOS
   Replace a file in images/ with a new one using the SAME file name.
   Best size: tall (portrait) 720 x 960 JPG, under 200 KB.
+
+HOSTING ON CLOUDFLARE PAGES (free, no badge) - replaces steps 1-3 above
+  a. Web3Forms: she signs up at web3forms.com with maddetailermobile@gmail.com.
+     They email her an access key. Paste it into WEB3FORMS_KEY in js/site.js.
+  b. Cloudflare: dash.cloudflare.com > Workers & Pages > Create > Pages tab >
+     Connect to Git > GitHub > mad-detailer-site. Framework preset: None.
+     Build command: blank. Build output directory: / . Save and Deploy.
+     You get a link like mad-detailer-site.pages.dev.
+  c. Domain: in Cloudflare, Add a domain > mhdetails.com > Free plan. Cloudflare copies
+     the existing GoDaddy records and gives you 2 nameservers.
+     GoDaddy > mhdetails.com > DNS > Nameservers > Change > "I'll use my own"
+     > paste Cloudflare's 2 nameservers > Save.
+  d. When Cloudflare says the domain is Active: Workers & Pages > mad-detailer-site >
+     Custom domains > add mhdetails.com, then add www.mhdetails.com.
+  e. Turn off the old Netlify site (Netlify > Project configuration > Delete project)
+     once mhdetails.com shows the site from Cloudflare.
+  Every change pushed to GitHub goes live automatically.
